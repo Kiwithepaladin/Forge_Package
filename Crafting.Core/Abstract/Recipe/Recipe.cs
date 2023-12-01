@@ -10,11 +10,16 @@ namespace Crafting.Core.Abstract.Recipe
 {
     public abstract class Recipe
     {
-        public abstract List<Ingredient> Ingredient { get; }
+        protected abstract List<Ingredient> Ingredient { get; }
         public abstract Item Item { get; }
 
         public Result Craftable(IEnumerable<Ingredient> ingredients)
         {
+            if (ingredients is null || ingredients.Count() <= 0)
+            {
+                return Result.Failed;
+            }
+
             if (Ingredient.SequenceEqual(ingredients, new RecipeEqualityComparer()))
             {
                 return Result.Successful;

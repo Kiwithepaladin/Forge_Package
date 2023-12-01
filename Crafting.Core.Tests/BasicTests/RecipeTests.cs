@@ -1,4 +1,5 @@
-﻿using Crafting.API.Impl.Recipes;
+﻿using Crafting.API.Impl.Ingredients;
+using Crafting.API.Impl.Recipes;
 using Crafting.Core.Abstract.Ingredients;
 using Crafting.Core.Utility;
 using NUnit.Framework;
@@ -9,6 +10,9 @@ namespace Crafting.API.Tests.BasicTests
     internal class RecipeTests
     {
         RecipeSword recipeSword;
+        private List<Ingredient> ingredient => new List<Ingredient> {
+            new Iron(), new Iron(), new Iron()
+        };
 
         [SetUp]
         public void Setup()
@@ -19,27 +23,13 @@ namespace Crafting.API.Tests.BasicTests
         [Test]
         public void Recipe_Cratable_Successful()
         {
-            var copiedList = new Ingredient[recipeSword.Ingredient.Count];
-            recipeSword.Ingredient.CopyTo(copiedList);
-
-            Assert.AreEqual(Result.Successful, recipeSword.Craftable(copiedList));
+            Assert.AreEqual(Result.Successful, recipeSword.Craftable(ingredient));
         }
 
         [Test]
         public void Recipe_Cratable_Fail()
         {
-            var copiedList = new Ingredient[recipeSword.Ingredient.Count];
-
-            Assert.AreEqual(Result.Failed, recipeSword.Craftable(copiedList));
-        }
-
-        [Test]
-        public void Recipe_Item_Creation_Full()
-        {
-            var copiedList = new Ingredient[recipeSword.Ingredient.Count];
-            recipeSword.Ingredient.CopyTo(copiedList);
-
-
+            Assert.AreEqual(Result.Failed, recipeSword.Craftable(null));
         }
     }
 }

@@ -1,26 +1,11 @@
-using Crafting.API.Impl;
-using Crafting.API.Impl.Recipes;
-using Crafting.API.Impl.Stat;
 using Crafting.API.Impl.Stats;
 using Crafting.Core.Utility;
 using NUnit.Framework;
 
-namespace Crafting.Core.Tests
+namespace Crafting.API.Tests.BasicTests
 {
-    internal class StatsTests
+    internal class StatsTests : BaseTests
     {
-        private StatsSheet sheet;
-        private CraftingTable table;
-        private RecipeSword recipe;
-
-        [SetUp]
-        public void Setup()
-        {
-            sheet = new StatsSheet();
-            table = new CraftingTable(sheet);
-            recipe = new RecipeSword();
-        }
-
         [Test]
         public void Stats_Validate()
         {
@@ -35,7 +20,7 @@ namespace Crafting.Core.Tests
             var inspire = sheet.GetStat<Inspiration>();
             inspire.SetValue(inspire.MAX_VALUE);
 
-            var ouputItem = table.Craft(recipe, recipe.Ingredient);
+            var ouputItem = table.Craft(recipe, ingredient);
 
             Assert.AreEqual(Quality.Uncommon, ouputItem[0].Quality);
         }
@@ -48,7 +33,7 @@ namespace Crafting.Core.Tests
             var inspire = sheet.GetStat<Inspiration>();
             inspire.SetValue(0);
 
-            var ouputItem = table.Craft(recipe, recipe.Ingredient);
+            var ouputItem = table.Craft(recipe, ingredient);
 
             Assert.AreNotEqual(Quality.Uncommon, ouputItem[0].Quality);
         }
@@ -60,7 +45,7 @@ namespace Crafting.Core.Tests
 
             stat.SetValue(stat.MAX_VALUE);
 
-            var ouputItem = table.Craft(recipe, recipe.Ingredient);
+            var ouputItem = table.Craft(recipe, ingredient);
 
             Assert.AreEqual(Multicraft.MAX_MULTICRAFT + 1, ouputItem.Count);
         }
@@ -71,7 +56,7 @@ namespace Crafting.Core.Tests
             var stat = sheet.GetStat<Multicraft>();
             stat.SetValue(0);
 
-            var ouputItem = table.Craft(recipe, recipe.Ingredient);
+            var ouputItem = table.Craft(recipe, ingredient);
 
             Assert.AreEqual(1, ouputItem.Count);
         }
