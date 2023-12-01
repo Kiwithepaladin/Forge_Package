@@ -1,5 +1,7 @@
 ﻿using Crafting.API.Impl.Stats;
+using Crafting.Core.Abstract.Ingredients;
 using Crafting.Core.Abstract.Items;
+using Crafting.Core.Abstract.Recipe;
 using Crafting.Core.Abstract.Stat;
 using Crafting.Core.Utility;
 using System;
@@ -19,8 +21,14 @@ namespace Crafting.API.Impl
             random = new Random();
         }
 
-        public List<Item> Craft(Item template)
+        public List<Item> Craft(Recipe recipe, IEnumerable<Ingredient> ingredients)
         {
+            if (recipe.Craftable(ingredients) == Result.Failed)
+            {
+                Console.WriteLine($"Cannot Craft Item {recipe.Item} from {recipe}");
+                return new List<Item>();
+            }
+
             List<Item> crafted = new List<Item>(1);
             Quality output = Quality.Unknown;
             int multicraftCount = 0;
@@ -49,10 +57,10 @@ namespace Crafting.API.Impl
 
             for (int i = 0; i < multicraftCount; i++)
             {
-                crafted.Add(template.Craft(DetermineQuality(knowladge, inspired)));
+                crafted.Add(recipe.Item.Craft(DetermineQuality(knowladge, inspired)));
             }
 
-            crafted.Add(template.Craft(DetermineQuality(knowladge, inspired)));
+            crafted.Add(recipe.Item.Craft(DetermineQuality(knowladge, inspired)));
 
             return crafted;
         }
