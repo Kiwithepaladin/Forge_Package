@@ -8,17 +8,26 @@ namespace Crafting.Core.Abstract.Stat
     {
         public abstract float MAX_VALUE { get; }
         public abstract float WEIGHT { get; }
+        public float Value { get; private set; }
 
-        public readonly float value;
-
-        public NumericStat(float initValue = 300)
+        public NumericStat(float initValue = 100)
         {
-            value = initValue;
+            Value = initValue;
         }
 
         public float Percentage()
         {
-            return value / MAX_VALUE;
+            return (Value / MAX_VALUE) * 100;
+        }
+
+        public void SetValue(float initValue)
+        {
+            if (initValue > MAX_VALUE)
+            {
+                initValue = MAX_VALUE;
+            }
+
+            Value = initValue;
         }
     }
 }

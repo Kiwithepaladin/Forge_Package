@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Crafting.Core": {
+      "commandName": "Project"
+    },
+    "Crafting.Core.Tests": {
+      "commandName": "Project"
+    }
+  }
+}

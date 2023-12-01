@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32630.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crafting.Core", "Crafting.Core.csproj", "{7445801A-2613-45D0-8FB0-000FA5C818AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crafting.Core", "Crafting.Core.csproj", "{7445801A-2613-45D0-8FB0-000FA5C818AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crafting.API", "..\Crafting.API\Crafting.API.csproj", "{7901C3A3-06E6-4346-A727-43C98BAED512}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crafting.API", "..\Crafting.API\Crafting.API.csproj", "{7901C3A3-06E6-4346-A727-43C98BAED512}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crafting.API.Tests", "..\Crafting.Core.Tests\Crafting.API.Tests.csproj", "{583F176B-356A-4A2E-9C32-987D587A11EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7901C3A3-06E6-4346-A727-43C98BAED512}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7901C3A3-06E6-4346-A727-43C98BAED512}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7901C3A3-06E6-4346-A727-43C98BAED512}.Release|Any CPU.Build.0 = Release|Any CPU
+		{583F176B-356A-4A2E-9C32-987D587A11EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{583F176B-356A-4A2E-9C32-987D587A11EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{583F176B-356A-4A2E-9C32-987D587A11EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{583F176B-356A-4A2E-9C32-987D587A11EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
