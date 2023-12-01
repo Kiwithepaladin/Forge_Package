@@ -15,7 +15,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Impl\" />
+    <Compile Remove="Impl\**" />
+    <EmbeddedResource Remove="Impl\**" />
+    <None Remove="Impl\**" />
   </ItemGroup>
 
 </Project>

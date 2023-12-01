@@ -10,7 +10,7 @@ namespace Crafting.Core.Abstract.Stat
         public abstract float WEIGHT { get; }
         public float Value { get; private set; }
 
-        public NumericStat(float initValue = 100)
+        public NumericStat(float initValue = 1)
         {
             Value = initValue;
         }
