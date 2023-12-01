@@ -22,6 +22,7 @@ namespace Crafting.Core.Utility
     /// </summary>
     public enum Result
     {
+        Unknown,
         Successful,
         Failed,
     }
