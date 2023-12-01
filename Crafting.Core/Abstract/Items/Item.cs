@@ -11,11 +11,6 @@ namespace Crafting.Core.Abstract.Items
         public Quality Quality { get => _quality; set => SetQuality(value); }
         public abstract int Difficulty { get; }
 
-        public Item()
-        {
-
-        }
-
         public abstract Item Craft(Quality quality);
 
         private void SetQuality(Quality newQuality)
