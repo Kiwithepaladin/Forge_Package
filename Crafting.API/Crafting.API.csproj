@@ -9,6 +9,10 @@
     <OutputPath>D:\Things I call Games\CraftingPackage\Assets\Plugins\</OutputPath>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>D:\Things I call Games\CraftingPackage\Assets\Plugins\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Crafting.Core\Crafting.Core.csproj" />
   </ItemGroup>
