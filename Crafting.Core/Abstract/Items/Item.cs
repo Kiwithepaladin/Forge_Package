@@ -12,13 +12,14 @@ namespace Crafting.Core.Abstract.Items
 
         public Item Craft(Quality quality)
         {
-            Quality = quality;
-            return this;
+            var newItem = (Item)Activator.CreateInstance(GetType());
+            newItem.Quality = quality;
+            return newItem;
         }
 
         private void SetQuality(Quality newQuality)
         {
-            Quality = newQuality;
+            _quality = newQuality;
         }
     }
 }

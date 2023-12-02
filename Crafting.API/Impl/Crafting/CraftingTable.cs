@@ -1,4 +1,5 @@
 ﻿using Crafting.API.Impl.Stats;
+using Crafting.API.Utility;
 using Crafting.Core.Abstract.Ingredients;
 using Crafting.Core.Abstract.Items;
 using Crafting.Core.Abstract.Recipe;
@@ -6,7 +7,6 @@ using Crafting.Core.Abstract.Stat;
 using Crafting.Core.Utility;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Crafting.API.Impl
 {
@@ -23,14 +23,15 @@ namespace Crafting.API.Impl
 
         public List<Item> Craft(Recipe recipe, IEnumerable<Ingredient> ingredients)
         {
-            if (recipe.Craftable(ingredients) == Result.Failed)
+            List<Item> crafted = new List<Item>();
+            
+            if (recipe.Craftable(ingredients) != Result.Successful)
             {
                 Console.WriteLine($"Cannot Craft Item {recipe.Item} from {recipe}");
-                return new List<Item>();
+                CraftingEvents.RaiseCraftedCompletion(crafted);
+                return crafted;
             }
 
-            List<Item> crafted = new List<Item>(1);
-            Quality output = Quality.Unknown;
             int multicraftCount = 0;
             int knowladge = 0;
             bool resorceful = false;
@@ -62,9 +63,10 @@ namespace Crafting.API.Impl
 
             crafted.Add(recipe.Item.Craft(DetermineQuality(knowladge, inspired)));
 
+            CraftingEvents.RaiseCraftedCompletion(crafted);
             return crafted;
         }
-
+        
         private Quality DetermineQuality(int skillLevel, bool inspired)
         {
             Quality output = Quality.Unknown;
@@ -92,7 +94,6 @@ namespace Crafting.API.Impl
             {
                 return output += 1;
             }
-
             return output;
         }
 
