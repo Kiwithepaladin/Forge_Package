@@ -9,9 +9,17 @@ namespace Crafting.API.Utility
         public delegate void CraftedItem(List<Item> craftedItems);
         public static event CraftedItem OnCraftCompletion;
 
-        public static void RaiseCraftedCompletion(List<Item> craftedItems)
+        public delegate void MulticraftedItem();
+        public static event MulticraftedItem OnItemMulticrafted;
+
+        internal static void RaiseCraftedCompletion(List<Item> craftedItems)
         {
             OnCraftCompletion?.Invoke(craftedItems);
+        }
+
+        internal static void RaiseMulticraftedItem()
+        {
+            OnItemMulticrafted?.Invoke();
         }
     }
 }

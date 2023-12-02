@@ -104,6 +104,7 @@ namespace Crafting.API.Impl
             
             while (stat.Percentage() >= randomNumber && Multicraft.MAX_MULTICRAFT > multicraftedCount)
             {
+                CraftingEvents.RaiseMulticraftedItem();
                 randomNumber = random.Next(1, 100);
                 multicraftedCount++;
             }
