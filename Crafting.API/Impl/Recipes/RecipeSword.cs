@@ -14,7 +14,7 @@ namespace Crafting.API.Impl.Recipes
         protected override List<Ingredient> Ingredient => new List<Ingredient> {
             new Iron(), new Iron(), new Iron()
         };
-
         public override Item Item => new Sword();
+        public override int Difficulty => 500;
     }
 }

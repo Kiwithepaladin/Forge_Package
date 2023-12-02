@@ -12,6 +12,7 @@ namespace Crafting.Core.Abstract.Recipe
     {
         protected abstract List<Ingredient> Ingredient { get; }
         public abstract Item Item { get; }
+        public abstract int Difficulty { get; }
 
         public Result Craftable(IEnumerable<Ingredient> ingredients)
         {
