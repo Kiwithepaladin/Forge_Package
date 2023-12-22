@@ -27,13 +27,12 @@ namespace Crafting.API.Impl
             
             if (recipe.Craftable(ingredients) != Result.Successful)
             {
-                Console.WriteLine($"Cannot Craft Item {recipe.Item} from {recipe}");
                 CraftingEvents.RaiseCraftedCompletion(crafted);
                 return crafted;
             }
 
             int multicraftCount = 0;
-            int knowladge = 0;
+            int knowledge = 0;
             bool resorceful = false;
             bool inspired = false;
 
@@ -50,18 +49,18 @@ namespace Crafting.API.Impl
                     case Resourceful:
                         resorceful = ProcessResoureceful(stat as Resourceful);
                         break;
-                    case Knowladge:
-                        knowladge = ProcessKnowladge(stat as Knowladge);
+                    case Stats.knowledge:
+                        knowledge = ProcessKnowledge(stat as knowledge);
                         break;
                 }
             }
 
             for (int i = 0; i < multicraftCount; i++)
             {
-                crafted.Add(recipe.Item.Craft(DetermineQuality(knowladge, inspired)));
+                crafted.Add(recipe.Item.Craft(DetermineQuality(knowledge, inspired)));
             }
 
-            crafted.Add(recipe.Item.Craft(DetermineQuality(knowladge, inspired)));
+            crafted.Add(recipe.Item.Craft(DetermineQuality(knowledge, inspired)));
 
             CraftingEvents.RaiseCraftedCompletion(crafted);
             return crafted;
@@ -112,7 +111,7 @@ namespace Crafting.API.Impl
             return multicraftedCount;
         }
 
-        private int ProcessKnowladge(Knowladge knowladge)
+        private int ProcessKnowledge(knowledge knowladge)
         {
             return (int)Math.Ceiling(knowladge.Value);
         }
@@ -135,8 +134,10 @@ namespace Crafting.API.Impl
 
             if (stat.Percentage() >= randomNumber)
             {
+                CraftingEvents.RaiseInspiredItem();
                 return true;
             }
+
             return false;
         }
     }

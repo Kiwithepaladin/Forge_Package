@@ -20,9 +20,9 @@ namespace Crafting.API.Tests.BasicTests
         }
 
         [Test]
-        public void Craft_Knowladge_Quality_Legendary_Item()
+        public void Craft_Knowledge_Quality_Legendary_Item()
         {
-            var stat = sheet.GetStat<Knowladge>();
+            var stat = sheet.GetStat<knowledge>();
             stat.SetValue(stat.MAX_VALUE);
 
             var ouputItems = table.Craft(recipe, ingredient);
@@ -31,9 +31,9 @@ namespace Crafting.API.Tests.BasicTests
         }
 
         [Test]
-        public void Craft_Knowladge_Quality_Epic_Item()
+        public void Craft_Knowledge_Quality_Epic_Item()
         {
-            var stat = sheet.GetStat<Knowladge>();
+            var stat = sheet.GetStat<knowledge>();
             stat.SetValue(80);
 
             var ouputItems = table.Craft(recipe, ingredient);
@@ -42,9 +42,9 @@ namespace Crafting.API.Tests.BasicTests
         }
 
         [Test]
-        public void Craft_Knowladge_Quality_Rare_Item()
+        public void Craft_Knowledge_Quality_Rare_Item()
         {
-            var stat = sheet.GetStat<Knowladge>();
+            var stat = sheet.GetStat<knowledge>();
             stat.SetValue(60);
 
             var ouputItems = table.Craft(recipe, ingredient);
@@ -53,9 +53,9 @@ namespace Crafting.API.Tests.BasicTests
         }
 
         [Test]
-        public void Craft_Knowladge_Quality_Uncommon_Item()
+        public void Craft_Knowledge_Quality_Uncommon_Item()
         {
-            var stat = sheet.GetStat<Knowladge>();
+            var stat = sheet.GetStat<knowledge>();
             stat.SetValue(40);
 
             var ouputItems = table.Craft(recipe, ingredient);
@@ -64,9 +64,9 @@ namespace Crafting.API.Tests.BasicTests
         }
 
         [Test]
-        public void Craft_Knowladge_Quality_Common_Item()
+        public void Craft_Knowledge_Quality_Common_Item()
         {
-            var stat = sheet.GetStat<Knowladge>();
+            var stat = sheet.GetStat<knowledge>();
             stat.SetValue(0);
 
             var ouputItems = table.Craft(recipe, ingredient);

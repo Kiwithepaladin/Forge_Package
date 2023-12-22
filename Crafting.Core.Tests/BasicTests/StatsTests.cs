@@ -15,7 +15,7 @@ namespace Crafting.API.Tests.BasicTests
         [Test]
         public void Stats_Inspiration_Inspired()
         {
-            var knowladge = sheet.GetStat<Knowladge>();
+            var knowladge = sheet.GetStat<knowledge>();
             knowladge.SetValue(0);
             var inspire = sheet.GetStat<Inspiration>();
             inspire.SetValue(inspire.MAX_VALUE);
@@ -28,7 +28,7 @@ namespace Crafting.API.Tests.BasicTests
         [Test]
         public void Stats_Inspiration_Uninspired()
         {
-            var knowladge = sheet.GetStat<Knowladge>();
+            var knowladge = sheet.GetStat<knowledge>();
             knowladge.SetValue(0);
             var inspire = sheet.GetStat<Inspiration>();
             inspire.SetValue(0);
