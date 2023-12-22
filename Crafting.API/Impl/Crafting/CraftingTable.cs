@@ -49,8 +49,8 @@ namespace Crafting.API.Impl
                     case Resourceful:
                         resorceful = ProcessResoureceful(stat as Resourceful);
                         break;
-                    case Stats.knowledge:
-                        knowledge = ProcessKnowledge(stat as knowledge);
+                    case Stats.Knowledge:
+                        knowledge = ProcessKnowledge(stat as Knowledge);
                         break;
                 }
             }
@@ -111,7 +111,7 @@ namespace Crafting.API.Impl
             return multicraftedCount;
         }
 
-        private int ProcessKnowledge(knowledge knowladge)
+        private int ProcessKnowledge(Knowledge knowladge)
         {
             return (int)Math.Ceiling(knowladge.Value);
         }
