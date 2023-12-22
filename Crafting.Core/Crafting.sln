@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crafting.API", "..\Crafting
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crafting.API.Tests", "..\Crafting.Core.Tests\Crafting.API.Tests.csproj", "{583F176B-356A-4A2E-9C32-987D587A11EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crafting.SourceGenerator", "..\Crafting.SourceGenerator\Crafting.SourceGenerator.csproj", "{E7027787-8559-4682-8114-39332AA563C7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{583F176B-356A-4A2E-9C32-987D587A11EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{583F176B-356A-4A2E-9C32-987D587A11EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{583F176B-356A-4A2E-9C32-987D587A11EB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E7027787-8559-4682-8114-39332AA563C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E7027787-8559-4682-8114-39332AA563C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E7027787-8559-4682-8114-39332AA563C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E7027787-8559-4682-8114-39332AA563C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -20,10 +20,5 @@
     <EmbeddedResource Remove="Impl\**" />
     <None Remove="Impl\**" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Crafting.SourceGenerator\Crafting.SourceGenerator.csproj"
-                      OutputItemType="Analyzer"/>
-  </ItemGroup>
   
 </Project>
