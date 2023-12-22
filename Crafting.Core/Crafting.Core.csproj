@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Nullable>enable</Nullable>
     <LangVersion>9.0</LangVersion>
   </PropertyGroup>
 
@@ -20,4 +21,9 @@
     <None Remove="Impl\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Crafting.SourceGenerator\Crafting.SourceGenerator.csproj"
+                      OutputItemType="Analyzer"/>
+  </ItemGroup>
+  
 </Project>
