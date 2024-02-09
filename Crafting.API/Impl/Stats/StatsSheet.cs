@@ -11,7 +11,7 @@ namespace Crafting.API.Impl.Stat
     public sealed class StatsSheet : IStatSheet
     {
         public HashSet<IStat> Stats { get; set; }
-
+        
         public StatsSheet()
         {
             Stats = new();
