@@ -1,4 +1,5 @@
 ﻿using Crafting.API.Impl.Ingredients;
+using Crafting.API.Impl.Items;
 using Crafting.API.Impl.Recipes;
 using Crafting.Core.Abstract.Ingredients;
 using Crafting.Core.Utility;
@@ -10,8 +11,8 @@ namespace Crafting.API.Tests.BasicTests
     internal class RecipeTests
     {
         RecipeSword recipeSword;
-        private List<Ingredient> ingredient => new List<Ingredient> {
-            new Iron(), new Iron(), new Iron()
+        private List<IComponent> ingredient => new List<IComponent> {
+            new Handle(), new Iron(), new Iron()
         };
 
         [SetUp]

@@ -6,6 +6,6 @@ namespace Crafting.Core.Abstract.Stat
 {
     public interface IStatSheet
     {
-        public List<IStat> Stats { get; set; }
+        public HashSet<IStat> Stats { get; set; }
     }
 }

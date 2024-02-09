@@ -1,12 +1,12 @@
 ﻿using Crafting.API.Impl.Stats;
+using Crafting.API.Utility;
+using Crafting.Core.Abstract.Components;
 using Crafting.Core.Abstract.Ingredients;
-using Crafting.Core.Abstract.Items;
 using Crafting.Core.Abstract.Recipe;
 using Crafting.Core.Abstract.Stat;
 using Crafting.Core.Utility;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Crafting.API.Impl
 {
@@ -21,18 +21,18 @@ namespace Crafting.API.Impl
             random = new Random();
         }
 
-        public List<Item> Craft(Recipe recipe, IEnumerable<Ingredient> ingredients)
+        public List<Item> Craft(Recipe recipe, IEnumerable<IComponent> ingredients)
         {
-            if (recipe.Craftable(ingredients) == Result.Failed)
+            List<Item> crafted = new List<Item>();
+            
+            if (recipe.Craftable(ingredients) != Result.Successful)
             {
-                Console.WriteLine($"Cannot Craft Item {recipe.Item} from {recipe}");
-                return new List<Item>();
+                CraftingEvents.RaiseCraftedCompletion(crafted);
+                return crafted;
             }
 
-            List<Item> crafted = new List<Item>(1);
-            Quality output = Quality.Unknown;
             int multicraftCount = 0;
-            int knowladge = 0;
+            int knowledge = 0;
             bool resorceful = false;
             bool inspired = false;
 
@@ -49,22 +49,23 @@ namespace Crafting.API.Impl
                     case Resourceful:
                         resorceful = ProcessResoureceful(stat as Resourceful);
                         break;
-                    case Knowladge:
-                        knowladge = ProcessKnowladge(stat as Knowladge);
+                    case Stats.Knowledge:
+                        knowledge = ProcessKnowledge(stat as Knowledge);
                         break;
                 }
             }
 
             for (int i = 0; i < multicraftCount; i++)
             {
-                crafted.Add(recipe.Item.Craft(DetermineQuality(knowladge, inspired)));
+                crafted.Add(recipe.Item.Craft(DetermineQuality(knowledge, inspired)));
             }
 
-            crafted.Add(recipe.Item.Craft(DetermineQuality(knowladge, inspired)));
+            crafted.Add(recipe.Item.Craft(DetermineQuality(knowledge, inspired)));
 
+            CraftingEvents.RaiseCraftedCompletion(crafted);
             return crafted;
         }
-
+        
         private Quality DetermineQuality(int skillLevel, bool inspired)
         {
             Quality output = Quality.Unknown;
@@ -92,7 +93,6 @@ namespace Crafting.API.Impl
             {
                 return output += 1;
             }
-
             return output;
         }
 
@@ -103,6 +103,7 @@ namespace Crafting.API.Impl
             
             while (stat.Percentage() >= randomNumber && Multicraft.MAX_MULTICRAFT > multicraftedCount)
             {
+                CraftingEvents.RaiseMulticraftedItem();
                 randomNumber = random.Next(1, 100);
                 multicraftedCount++;
             }
@@ -110,7 +111,7 @@ namespace Crafting.API.Impl
             return multicraftedCount;
         }
 
-        private int ProcessKnowladge(Knowladge knowladge)
+        private int ProcessKnowledge(Knowledge knowladge)
         {
             return (int)Math.Ceiling(knowladge.Value);
         }
@@ -133,8 +134,10 @@ namespace Crafting.API.Impl
 
             if (stat.Percentage() >= randomNumber)
             {
+                CraftingEvents.RaiseInspiredItem();
                 return true;
             }
+
             return false;
         }
     }

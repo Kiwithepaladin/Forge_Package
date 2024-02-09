@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Crafting.Core.Abstract.Ingredients
 {
-    public abstract class Ingredient
+    public interface IComponent
     {
         public abstract string Name { get; }
     }
