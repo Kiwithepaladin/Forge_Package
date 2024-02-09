@@ -2,9 +2,14 @@
 
 namespace Crafting.API.Impl.Stats
 {
-    public sealed class Inspiration : NumericStat
+    public sealed class Inspiration : IStatGeneric<bool>
     {
-        public override float MAX_VALUE => 100;
-        public override float WEIGHT => 20;
+        public bool MAX_VALUE => true;
+        public bool Value { get; private set; }
+
+        public void SetValue(bool newValue)
+        {
+            Value = newValue;
+        }
     }
 }

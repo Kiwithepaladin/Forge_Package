@@ -93,6 +93,7 @@ namespace Crafting.API.Impl
             {
                 return output += 1;
             }
+
             return output;
         }
 
@@ -130,9 +131,7 @@ namespace Crafting.API.Impl
 
         private bool ProcessInspiration(Inspiration stat)
         {
-            int randomNumber = random.Next(1, 100);
-
-            if (stat.Percentage() >= randomNumber)
+            if (stat.Value)
             {
                 CraftingEvents.RaiseInspiredItem();
                 return true;

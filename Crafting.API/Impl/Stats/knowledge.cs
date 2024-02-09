@@ -2,9 +2,14 @@
 
 namespace Crafting.API.Impl.Stats
 {
-    public sealed class Knowledge : NumericStat
+    public sealed class Knowledge : IStatGeneric<float>
     {
-        public override float MAX_VALUE => 100;
-        public override float WEIGHT => 20;
+        public float MAX_VALUE => 100;
+        public float Value { get; set; }
+
+        public void SetValue(float newValue)
+        {
+            Value = newValue;
+        }
     }
 }
