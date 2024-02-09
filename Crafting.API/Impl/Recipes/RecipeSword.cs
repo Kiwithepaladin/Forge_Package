@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Crafting.API.Impl.Recipes
 {
-    public class RecipeSword : Recipe
+    public sealed class RecipeSword : Recipe
     {
         protected override List<IComponent> Ingredient => new List<IComponent> {
             new Handle(), new Iron(), new Iron()

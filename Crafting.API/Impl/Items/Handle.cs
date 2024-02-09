@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Crafting.API.Impl.Items
 {
-    public class Handle : Item
+    public sealed class Handle : Item
     {
         public override string Name => nameof(Handle);
     }
