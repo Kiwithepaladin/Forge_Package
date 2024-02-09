@@ -49,7 +49,7 @@ namespace Crafting.API.Impl
                     case Resourceful:
                         resorceful = ProcessResoureceful(stat as Resourceful);
                         break;
-                    case Stats.Knowledge:
+                    case Knowledge:
                         knowledge = ProcessKnowledge(stat as Knowledge);
                         break;
                 }

@@ -5,6 +5,10 @@ using System.Linq;
 
 namespace Crafting.API.Impl.Stat
 {
+    /// <summary>
+    /// This StatSheet class is auto generated from
+    /// other classes that implement IStat
+    /// </summary>
     public sealed class StatsSheet : IStatSheet
     {
         public HashSet<IStat> Stats { get; set; }

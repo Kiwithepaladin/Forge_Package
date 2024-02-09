@@ -1,6 +1,5 @@
 ﻿using Crafting.Core.Abstract.Stat;
 
-
 namespace Crafting.API.Impl.Stats
 {
     public sealed class Inspiration : NumericStat
