@@ -2,15 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 
 namespace Crafting.API.Impl.Stat
 {
+    /// <summary>
+    /// This IStatSheet implementation auto populates the hashset with basic assembly reflection
+    /// </summary>
     public sealed class StatsSheet : IStatSheet
     {
         public HashSet<IStat> Stats { get; set; }
-
+        
         public StatsSheet()
         {
             Stats = new();

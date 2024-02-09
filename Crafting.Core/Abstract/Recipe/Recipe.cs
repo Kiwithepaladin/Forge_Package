@@ -1,10 +1,8 @@
 ﻿using Crafting.Core.Abstract.Components;
 using Crafting.Core.Abstract.Ingredients;
 using Crafting.Core.Utility;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Crafting.Core.Abstract.Recipe
 {
@@ -12,7 +10,7 @@ namespace Crafting.Core.Abstract.Recipe
     {
         protected abstract List<IComponent> Ingredient { get; }
         public abstract Item Item { get; }
-        public abstract int Difficulty { get; }
+        public abstract Difficulty Difficulty { get; }
 
         public Result Craftable(IEnumerable<IComponent> ingredients)
         {

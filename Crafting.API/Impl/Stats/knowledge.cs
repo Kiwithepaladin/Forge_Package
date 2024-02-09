@@ -1,13 +1,15 @@
 ﻿using Crafting.Core.Abstract.Stat;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Crafting.API.Impl.Stats
 {
-    public sealed class Knowledge : NumericStat
+    public sealed class Knowledge : IStat<int>
     {
-        public override float MAX_VALUE => 100;
-        public override float WEIGHT => 20;
+        public int MAX_VALUE => 100;
+        public int Value { get; private set; }
+
+        public void SetValue(int newValue)
+        {
+            Value = newValue;
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace Crafting.API.Tests.BasicTests
             var knowladge = sheet.GetStat<Knowledge>();
             knowladge.SetValue(0);
             var inspire = sheet.GetStat<Inspiration>();
-            inspire.SetValue(0);
+            inspire.SetValue(false);
 
             var ouputItem = table.Craft(recipe, ingredient);
 

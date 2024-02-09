@@ -1,12 +1,14 @@
 ﻿using Crafting.Core.Abstract.Components;
+using Crafting.Core.Utility;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Crafting.API.Impl.Items
 {
-    public class Handle : Item
+    public sealed class Handle : Item
     {
         public override string Name => nameof(Handle);
     }
 }
+

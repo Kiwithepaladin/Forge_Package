@@ -16,7 +16,7 @@ namespace Crafting.API.Tests.BasicTests
             base.Setup();
             inventory = new Inventory();
             var inspire = sheet.GetStat<Inspiration>();
-            inspire.SetValue(0);
+            //inspire.SetValue(0);
         }
 
         [Test]
