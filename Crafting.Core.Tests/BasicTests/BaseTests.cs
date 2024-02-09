@@ -1,5 +1,6 @@
 ﻿using Crafting.API.Impl;
 using Crafting.API.Impl.Ingredients;
+using Crafting.API.Impl.Items;
 using Crafting.API.Impl.Recipes;
 using Crafting.API.Impl.Stat;
 using Crafting.Core.Abstract.Ingredients;
@@ -13,8 +14,8 @@ namespace Crafting.API.Tests.BasicTests
         protected StatsSheet sheet;
         protected CraftingTable table;
         protected RecipeSword recipe;
-        protected List<Ingredient> ingredient => new List<Ingredient> {
-            new Iron(), new Iron(), new Iron()
+        protected List<IComponent> ingredient => new List<IComponent> {
+            new Handle(), new Iron(), new Iron()
         };
 
         [SetUp]

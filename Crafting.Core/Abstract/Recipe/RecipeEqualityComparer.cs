@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Crafting.Core.Abstract.Recipe
 {
-    internal class RecipeEqualityComparer : IEqualityComparer<Ingredient>
+    internal class RecipeEqualityComparer : IEqualityComparer<IComponent>
     {
-        public bool Equals(Ingredient x, Ingredient y)
+        public bool Equals(IComponent x, IComponent y)
         {
             if (x == null || y == null)
             {
@@ -17,7 +17,7 @@ namespace Crafting.Core.Abstract.Recipe
             return x.Name.ToLower() == y.Name.ToLower() && x.GetType() == y.GetType();
         }
 
-        public int GetHashCode(Ingredient obj)
+        public int GetHashCode(IComponent obj)
         {
             return obj.Name.GetHashCode() ^ obj.GetType().GetHashCode();
         }

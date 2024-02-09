@@ -10,11 +10,11 @@ namespace Crafting.Core.Abstract.Recipe
 {
     public abstract class Recipe
     {
-        protected abstract List<Ingredient> Ingredient { get; }
+        protected abstract List<IComponent> Ingredient { get; }
         public abstract Item Item { get; }
         public abstract int Difficulty { get; }
 
-        public Result Craftable(IEnumerable<Ingredient> ingredients)
+        public Result Craftable(IEnumerable<IComponent> ingredients)
         {
             if (ingredients is null || ingredients.Count() <= 0)
             {
@@ -25,6 +25,7 @@ namespace Crafting.Core.Abstract.Recipe
             {
                 return Result.Successful;
             }
+
             return Result.Failed;
         }
     }

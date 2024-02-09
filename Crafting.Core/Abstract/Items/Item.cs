@@ -1,12 +1,15 @@
-﻿using Crafting.Core.Utility;
+﻿using Crafting.Core.Abstract.Ingredients;
+using Crafting.Core.Utility;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Crafting.Core.Abstract.Items
 {
-    public abstract class Item
+    public abstract class Item : IComponent
     {
+        public abstract string Name { get; }
+
         private Quality _quality;
         public Quality Quality { get => _quality; set => SetQuality(value); }
 

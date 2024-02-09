@@ -21,7 +21,7 @@ namespace Crafting.API.Impl
             random = new Random();
         }
 
-        public List<Item> Craft(Recipe recipe, IEnumerable<Ingredient> ingredients)
+        public List<Item> Craft(Recipe recipe, IEnumerable<IComponent> ingredients)
         {
             List<Item> crafted = new List<Item>();
             
