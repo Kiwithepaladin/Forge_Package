@@ -10,9 +10,11 @@ namespace Crafting.API.Impl.Recipes
 {
     public sealed class RecipeSword : Recipe
     {
-        protected override List<IComponent> Ingredient => new List<IComponent> {
+        protected override List<IComponent> Ingredient => new List<IComponent> 
+        {
             new Handle(), new Iron(), new Iron()
         };
+
         public override Item Item => new Sword();
         public override Difficulty Difficulty => Difficulty.Medium;
     }
