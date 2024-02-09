@@ -24,6 +24,15 @@ namespace Crafting.Core.Utility
     {
         Unknown,
         Successful,
-        Failed,
+        Failed
+    }
+
+    public enum Difficulty
+    {
+        Unknown,
+        Easy,
+        Medium,
+        Hard,
+        Extreme
     }
 }
