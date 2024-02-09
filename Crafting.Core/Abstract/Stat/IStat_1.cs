@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Crafting.Core.Abstract.Stat
 {
-    public interface IStatGeneric<T> : IStat
+    public interface IStat<T> : IStat
     {
         public abstract T MAX_VALUE { get; }
         public T Value { get; }

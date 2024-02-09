@@ -2,7 +2,7 @@
 
 namespace Crafting.API.Impl.Stats
 {
-    public sealed class Multicraft : IStatGeneric<float>
+    public sealed class Multicraft : IStat<float>
     {
         public float MAX_VALUE => 100;
         public float Value { get; set; }

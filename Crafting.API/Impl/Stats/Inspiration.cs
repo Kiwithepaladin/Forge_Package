@@ -2,7 +2,7 @@
 
 namespace Crafting.API.Impl.Stats
 {
-    public sealed class Inspiration : IStatGeneric<bool>
+    public sealed class Inspiration : IStat<bool>
     {
         public bool MAX_VALUE => true;
         public bool Value { get; private set; }
