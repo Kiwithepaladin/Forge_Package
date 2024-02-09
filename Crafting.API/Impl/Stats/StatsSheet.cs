@@ -6,8 +6,7 @@ using System.Linq;
 namespace Crafting.API.Impl.Stat
 {
     /// <summary>
-    /// This StatSheet class is auto generated from
-    /// other classes that implement IStat
+    /// This IStatSheet implementation auto populates the hashset with basic assembly reflection
     /// </summary>
     public sealed class StatsSheet : IStatSheet
     {
