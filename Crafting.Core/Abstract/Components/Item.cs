@@ -1,8 +1,6 @@
 ﻿using Crafting.Core.Abstract.Ingredients;
 using Crafting.Core.Utility;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Crafting.Core.Abstract.Components
 {
