@@ -1,7 +1,7 @@
 ﻿using Crafting.API.Impl.Stats;
 using Crafting.API.Utility;
+using Crafting.Core.Abstract.Components;
 using Crafting.Core.Abstract.Ingredients;
-using Crafting.Core.Abstract.Items;
 using Crafting.Core.Abstract.Recipe;
 using Crafting.Core.Abstract.Stat;
 using Crafting.Core.Utility;

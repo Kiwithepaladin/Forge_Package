@@ -9,7 +9,7 @@ namespace Crafting.API.Impl.Stat
 {
     public sealed class StatsSheet : IStatSheet
     {
-        public List<IStat> Stats { get; set; }
+        public HashSet<IStat> Stats { get; set; }
 
         public StatsSheet()
         {

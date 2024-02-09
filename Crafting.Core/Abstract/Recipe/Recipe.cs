@@ -1,5 +1,5 @@
-﻿using Crafting.Core.Abstract.Ingredients;
-using Crafting.Core.Abstract.Items;
+﻿using Crafting.Core.Abstract.Components;
+using Crafting.Core.Abstract.Ingredients;
 using Crafting.Core.Utility;
 using System;
 using System.Collections.Generic;

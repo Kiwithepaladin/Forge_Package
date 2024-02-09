@@ -1,4 +1,4 @@
-﻿using Crafting.Core.Abstract.Items;
+﻿using Crafting.Core.Abstract.Components;
 using System;
 using System.Collections.Generic;
 using System.Text;

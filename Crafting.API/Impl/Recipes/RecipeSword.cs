@@ -1,7 +1,7 @@
 ﻿using Crafting.API.Impl.Ingredients;
 using Crafting.API.Impl.Items;
+using Crafting.Core.Abstract.Components;
 using Crafting.Core.Abstract.Ingredients;
-using Crafting.Core.Abstract.Items;
 using Crafting.Core.Abstract.Recipe;
 using System.Collections.Generic;
 

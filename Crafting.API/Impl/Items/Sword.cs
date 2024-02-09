@@ -1,4 +1,4 @@
-﻿using Crafting.Core.Abstract.Items;
+﻿using Crafting.Core.Abstract.Components;
 using Crafting.Core.Utility;
 
 namespace Crafting.API.Impl.Items

@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Crafting.Core.Abstract.Items
+namespace Crafting.Core.Abstract.Components
 {
     public abstract class Item : IComponent
     {
