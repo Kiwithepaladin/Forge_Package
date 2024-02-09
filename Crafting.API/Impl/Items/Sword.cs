@@ -6,6 +6,5 @@ namespace Crafting.API.Impl.Items
     public sealed class Sword : Item
     {
         public override string Name => nameof(Sword);
-        public override Difficulty Difficulty { get => Difficulty.Medium; }
     }
 }

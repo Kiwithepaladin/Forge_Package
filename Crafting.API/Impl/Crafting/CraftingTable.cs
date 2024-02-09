@@ -27,14 +27,14 @@ namespace Crafting.API.Impl
             
             if (recipe.Craftable(ingredients) != Result.Successful)
             {
-                CraftingEvents.RaiseCraftedCompletion(crafted);
+                CraftingEvents.RaiseCraftFailed(Result.Failed);
                 return crafted;
             }
 
             int multicraftCount = 0;
-            int knowledge = 0;
+            Inspiration inspired = null;
             bool resorceful = false;
-            bool inspired = false;
+            Knowledge knowledge = null;
 
             foreach (var stat in StatSheet.Stats)
             {
@@ -44,33 +44,37 @@ namespace Crafting.API.Impl
                         multicraftCount = ProcessMulticraft(stat as Multicraft);
                         break;
                     case Inspiration:
-                        inspired = ProcessInspiration(stat as Inspiration);
+                        inspired = stat as Inspiration;
                         break;
                     case Resourceful:
                         resorceful = ProcessResoureceful(stat as Resourceful);
                         break;
                     case Knowledge:
-                        knowledge = ProcessKnowledge(stat as Knowledge);
+                        knowledge = stat as Knowledge;
                         break;
                 }
             }
 
-            for (int i = 0; i < multicraftCount; i++)
+            for (int i = 0; i < multicraftCount + 1; i++)
             {
-                crafted.Add(recipe.Item.Craft(DetermineQuality(knowledge, inspired)));
-            }
+                crafted.Add(recipe.Item.Craft(DetermineQuality(recipe, knowledge, inspired)));
 
-            crafted.Add(recipe.Item.Craft(DetermineQuality(knowledge, inspired)));
+                if (inspired.Value)
+                {
+                    CraftingEvents.RaiseInspiredItem(recipe.Item, inspired);
+                }
+            }
 
             CraftingEvents.RaiseCraftedCompletion(crafted);
             return crafted;
         }
         
-        private Quality DetermineQuality(int skillLevel, bool inspired)
+        //TODO - make a better quality deteminating algorithm
+        private Quality DetermineQuality(Recipe recipe, Knowledge skillLevel, Inspiration inspired)
         {
             Quality output = Quality.Unknown;
 
-            switch (skillLevel)
+            switch (skillLevel.Value)
             {
                 case int n when (n >= 100):
                     output = Quality.Legendary;
@@ -89,7 +93,7 @@ namespace Crafting.API.Impl
                     break;
             }
 
-            if (inspired && (int)output < Enum.GetValues(typeof(Quality)).Length - 1)
+            if (inspired.Value && (int)output < Enum.GetValues(typeof(Quality)).Length - 1)
             {
                 return output += 1;
             }
@@ -112,28 +116,12 @@ namespace Crafting.API.Impl
             return multicraftedCount;
         }
 
-        private int ProcessKnowledge(Knowledge knowladge)
-        {
-            return knowladge.Value;
-        }
-
         private bool ProcessResoureceful(Resourceful stat)
         {
             int randomNumber = random.Next(0, 100);
 
             if (stat.Percentage() >= randomNumber)
             {
-                return true;
-            }
-
-            return false;
-        }
-
-        private bool ProcessInspiration(Inspiration stat)
-        {
-            if (stat.Value)
-            {
-                CraftingEvents.RaiseInspiredItem();
                 return true;
             }
 

@@ -9,7 +9,6 @@ namespace Crafting.API.Impl.Items
     public sealed class Handle : Item
     {
         public override string Name => nameof(Handle);
-        public override Difficulty Difficulty { get => Difficulty.Easy; }
     }
 }
 

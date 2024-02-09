@@ -10,7 +10,7 @@ namespace Crafting.Core.Abstract.Recipe
     {
         protected abstract List<IComponent> Ingredient { get; }
         public abstract Item Item { get; }
-        public abstract int Difficulty { get; }
+        public abstract Difficulty Difficulty { get; }
 
         public Result Craftable(IEnumerable<IComponent> ingredients)
         {

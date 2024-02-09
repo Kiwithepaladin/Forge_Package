@@ -9,7 +9,6 @@ namespace Crafting.Core.Abstract.Components
         public abstract string Name { get; }
         private Quality _quality;
         public Quality Quality { get => _quality; private set => _quality = value; }
-        public abstract Difficulty Difficulty { get; }
 
         public Item Craft(Quality quality)
         {
