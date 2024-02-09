@@ -1,6 +1,4 @@
 ﻿using Crafting.Core.Abstract.Stat;
-using System;
-using System.Collections.Generic;
 
 namespace Crafting.API.Impl.Stats
 {

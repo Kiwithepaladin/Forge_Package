@@ -5,7 +5,7 @@ using System.Text;
 namespace Crafting.Core.Utility
 {
     /// <summary>
-    /// Quality of an item that was created
+    /// Quality of an Item
     /// </summary>
     public enum Quality
     {
