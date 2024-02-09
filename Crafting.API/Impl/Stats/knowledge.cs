@@ -2,12 +2,12 @@
 
 namespace Crafting.API.Impl.Stats
 {
-    public sealed class Knowledge : IStat<float>
+    public sealed class Knowledge : IStat<int>
     {
-        public float MAX_VALUE => 100;
-        public float Value { get; set; }
+        public int MAX_VALUE => 100;
+        public int Value { get; private set; }
 
-        public void SetValue(float newValue)
+        public void SetValue(int newValue)
         {
             Value = newValue;
         }

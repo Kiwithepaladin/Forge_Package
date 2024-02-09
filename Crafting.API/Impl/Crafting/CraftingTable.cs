@@ -114,7 +114,7 @@ namespace Crafting.API.Impl
 
         private int ProcessKnowledge(Knowledge knowladge)
         {
-            return (int)Math.Ceiling(knowladge.Value);
+            return knowladge.Value;
         }
 
         private bool ProcessResoureceful(Resourceful stat)
