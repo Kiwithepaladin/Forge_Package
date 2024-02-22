@@ -20,7 +20,7 @@ namespace Crafting.API.Tests.BasicTests
             var inspire = sheet.GetStat<Inspiration>();
             inspire.SetValue(inspire.MAX_VALUE);
 
-            var ouputItem = table.Craft(recipe, ingredient);
+            var ouputItem = table.Craft(recipe, Ingredient);
 
             Assert.AreEqual(Quality.Uncommon, ouputItem[0].Quality);
         }
@@ -33,7 +33,7 @@ namespace Crafting.API.Tests.BasicTests
             var inspire = sheet.GetStat<Inspiration>();
             inspire.SetValue(false);
 
-            var ouputItem = table.Craft(recipe, ingredient);
+            var ouputItem = table.Craft(recipe, Ingredient);
 
             Assert.AreNotEqual(Quality.Uncommon, ouputItem[0].Quality);
         }
@@ -45,7 +45,7 @@ namespace Crafting.API.Tests.BasicTests
 
             stat.SetValue(stat.MAX_VALUE);
 
-            var ouputItem = table.Craft(recipe, ingredient);
+            var ouputItem = table.Craft(recipe, Ingredient);
 
             Assert.AreEqual(Multicraft.MAX_MULTICRAFT + 1, ouputItem.Count);
         }
@@ -56,9 +56,32 @@ namespace Crafting.API.Tests.BasicTests
             var stat = sheet.GetStat<Multicraft>();
             stat.SetValue(0);
 
-            var ouputItem = table.Craft(recipe, ingredient);
+            var ouputItem = table.Craft(recipe, Ingredient);
 
             Assert.AreEqual(1, ouputItem.Count);
+        }
+
+        [Test]
+        public void Stats_StatSheet_SetValue_Equals()
+        {
+            var modifiedStat = sheet.SetStat<Multicraft, float>(10f);
+
+            Assert.AreEqual(modifiedStat.Value, 10f);
+        }
+
+        [Test]
+        public void Stats_StatSheet_SetValue_NotEquals()
+        {
+            try
+            {
+                var modifiedStat = sheet.SetStat<Knowledge, float>(10);
+            }
+            catch (System.Exception)
+            {
+                Assert.Pass();
+            }
+
+            Assert.Fail();
         }
     }
 }

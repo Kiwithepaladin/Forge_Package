@@ -6,12 +6,12 @@ using System.Text;
 
 namespace Crafting.API.Impl.Talents
 {
-    public class SwordMaster : ITalent<Knowledge>
+    public sealed class SwordMaster : ITalent<Knowledge>
     {
         public string Name => nameof(SwordMaster);
 
         //TODO - write something here later
-        public string Description => "Some Description Text";
+        public string Description => "An Example Talent Point For Sword Master Talent";
 
         public ITalent Left => throw new NotImplementedException();
 

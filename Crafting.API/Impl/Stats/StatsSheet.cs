@@ -6,7 +6,7 @@ using System.Linq;
 namespace Crafting.API.Impl.Stat
 {
     /// <summary>
-    /// This IStatSheet implementation auto populates the hashset with basic assembly reflection
+    /// IStatSheet implementation that auto populates the hashset using basic assembly reflection
     /// </summary>
     public sealed class StatsSheet : IStatSheet
     {
