@@ -13,7 +13,6 @@ namespace Crafting.API.Tests.BasicTests
         public void BuildTalentTree_Greater_Then_One()
         {
             var talentTree = new TalentTree();
-            talentTree.PrintTree();
             Assert.GreaterOrEqual(talentTree.Talents.Count, 1);
         }
     }
