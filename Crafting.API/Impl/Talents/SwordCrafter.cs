@@ -4,15 +4,15 @@ using System;
 
 namespace Crafting.API.Impl.Talents
 {
-    public sealed class SpearMaster : ITalent<Knowledge>
+    public sealed class SwordCrafter : ITalent<Knowledge>
     {
-        public string Name => nameof(SpearMaster);
+        public string Name => nameof(SwordCrafter);
 
         //TODO - write something here later
-        public string Description => "An Example Talent Point For Spear Master Talent";
-
+        public string Description => "An Example Talent Point For Sword Crafter Talent";
+        public int MAX_POINTS { get => 2; }
+        public int CurrentPoints { get; }
         public ITalent Left => null;
-
         public ITalent Right => null;
 
         public void Update(Knowledge stat)

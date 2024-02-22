@@ -1,51 +1,41 @@
 ﻿using Crafting.Core.Abstract.Talents;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Crafting.Core.Utility
 {
     public static class ITalentTreeExtensions
     {
-        public static ITalent FindTalent(this ITalentTree tree, ITalent root)
+        /// <summary>
+        /// Constructs a ItalentTree based on a given ITalent thats acts as root,
+        /// Going left to right recursively
+        /// </summary>
+        /// <param name="talentTree">The Talent Tree that is Being Constructed Into</param>
+        /// <param name="rootTalent">The Root Talent in which the tree is built from</param>
+        /// <returns>Final ITalent</returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static ITalent ConstructTreeFromRoot(this ITalentTree talentTree, ITalent rootTalent)
         {
-            if (tree == null)
+            if (talentTree == null)
             {
                 throw new ArgumentNullException();
             }
 
-            if (root.Left != null)
+            if (talentTree.Talents.Count == 0)
             {
-                tree.Talents.Add(FindTalent(tree, root.Left));
+                talentTree.Talents.Add(rootTalent);
             }
 
-            if (root.Right != null)
+            if (rootTalent.Left != null)
             {
-                tree.Talents.Add(FindTalent(tree, root.Right));
+                talentTree.Talents.Add(ConstructTreeFromRoot(talentTree, rootTalent.Left));
             }
 
-            return root;
-        }
-
-        public static void PrintTree(this ITalentTree tree)
-        {
-            if (tree == null)
+            if (rootTalent.Right != null)
             {
-                throw new ArgumentNullException();
+                talentTree.Talents.Add(ConstructTreeFromRoot(talentTree, rootTalent.Right));
             }
 
-            InOrderTraversal(tree.Talents.First());
-        }
-
-        private static void InOrderTraversal(ITalent root)
-        {
-            if (root != null)
-            {
-                InOrderTraversal(root.Left);
-                Console.Write(root.GetType() + " ");
-                InOrderTraversal(root.Right);
-            }
+            return rootTalent;
         }
     }
 }

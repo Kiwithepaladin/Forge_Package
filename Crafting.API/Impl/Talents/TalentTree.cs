@@ -1,5 +1,6 @@
 ﻿using Crafting.Core.Abstract.Stat;
 using Crafting.Core.Abstract.Talents;
+using Crafting.Core.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,17 +19,7 @@ namespace Crafting.API.Impl.Talents
         public TalentTree()
         {
             Talents = new();
-
-            foreach (Type talentType in AppDomain.CurrentDomain.GetAssemblies().SelectMany(s => s.GetTypes()).Where(p => typeof(ITalent).IsAssignableFrom(p)))
-            {
-                if (talentType.IsInterface || talentType.IsAbstract)
-                {
-                    continue;
-                }
-
-                ITalent newTalent = (ITalent)Activator.CreateInstance(talentType);
-                Talents.Add(newTalent);
-            }
+            this.ConstructTreeFromRoot(new Crafter());
         }
     }
 }
