@@ -32,7 +32,7 @@ namespace Crafting.API.Utility
 
         internal static void RaiseInspiredItem(Item inspiredItem, Inspiration inspiration)
         {
-            inspiration.SetValue(false);
+            inspiration.Value = false;
             OnInspiredItemCrafted?.Invoke(inspiredItem);
         }
 

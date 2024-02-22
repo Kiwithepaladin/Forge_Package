@@ -4,14 +4,14 @@ using System;
 
 namespace Crafting.API.Impl.Talents
 {
-    public sealed class SwordMaster : ITalent<Knowledge>
+    public sealed class SpearMaster : ITalent<Knowledge>
     {
-        public string Name => nameof(SwordMaster);
+        public string Name => nameof(SpearMaster);
 
         //TODO - write something here later
-        public string Description => "An Example Talent Point For Sword Master Talent";
+        public string Description => "An Example Talent Point For Spear Master Talent";
 
-        public ITalent Left => new SpearMaster();
+        public ITalent Left => null;
 
         public ITalent Right => null;
 

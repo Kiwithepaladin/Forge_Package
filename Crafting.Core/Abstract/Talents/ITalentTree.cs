@@ -8,6 +8,5 @@ namespace Crafting.Core.Abstract.Talents
     {
         public string Name { get; }
         public HashSet<ITalent> Talents { get; }
-        public void BuildTalentTree();
     }
 }

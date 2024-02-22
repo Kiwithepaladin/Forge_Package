@@ -6,7 +6,7 @@ using System.Linq;
 namespace Crafting.API.Impl.Stat
 {
     /// <summary>
-    /// IStatSheet implementation that auto populates the hashset using basic assembly reflection
+    /// Implements IStatSheet and auto populates the hashset using IStats from the assembly
     /// </summary>
     public sealed class StatsSheet : IStatSheet
     {
@@ -22,8 +22,8 @@ namespace Crafting.API.Impl.Stat
                     continue;
                 }
 
-                var newStat = Activator.CreateInstance(statType);
-                Stats.Add((IStat)newStat);
+                IStat newStat = (IStat)Activator.CreateInstance(statType);
+                Stats.Add(newStat);
             }
         }
     }
