@@ -12,8 +12,8 @@ namespace Crafting.API.Impl
 {
     public sealed class CraftingTable
     {
-        private IStatSheet StatSheet;
-        private Random random;
+        private readonly IStatSheet StatSheet;
+        private readonly Random random;
 
         public CraftingTable(IStatSheet stats)
         {
@@ -23,7 +23,7 @@ namespace Crafting.API.Impl
 
         public List<Item> Craft(Recipe recipe, IEnumerable<IComponent> ingredients)
         {
-            List<Item> crafted = new List<Item>();
+            List<Item> crafted = new();
             
             if (recipe.Craftable(ingredients) != Result.Successful)
             {
@@ -74,24 +74,14 @@ namespace Crafting.API.Impl
         {
             Quality output = Quality.Unknown;
 
-            switch (skillLevel.Value)
+            output = skillLevel.Value switch
             {
-                case int n when (n >= 100):
-                    output = Quality.Legendary;
-                    break;
-                case int n when (n >= 80):
-                    output = Quality.Epic;
-                    break;
-                case int n when (n >= 60):
-                    output = Quality.Rare;
-                    break;
-                case int n when (n >= 40):
-                    output = Quality.Uncommon;
-                    break;
-                default:
-                    output = Quality.Common;
-                    break;
-            }
+                int n when (n >= 100) => Quality.Legendary,
+                int n when (n >= 80) => Quality.Epic,
+                int n when (n >= 60) => Quality.Rare,
+                int n when (n >= 40) => Quality.Uncommon,
+                _ => Quality.Common,
+            };
 
             if (inspired.Value && (int)output < Enum.GetValues(typeof(Quality)).Length - 1)
             {
@@ -118,7 +108,7 @@ namespace Crafting.API.Impl
 
         private bool ProcessResoureceful(Resourceful stat)
         {
-            int randomNumber = random.Next(0, 100);
+            int randomNumber = random.Next(1, 100);
 
             if (stat.Percentage() >= randomNumber)
             {

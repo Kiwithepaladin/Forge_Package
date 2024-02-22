@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Crafting.Core.Abstract.Talents
 {
@@ -9,7 +7,7 @@ namespace Crafting.Core.Abstract.Talents
         public string Name { get; }
         public string Description { get; }
         public int MAX_POINTS { get; }
-        public int CurrentPoints { get; }
+        public int CurrentPoints { get; set; }
         public ITalent Left { get; }
         public ITalent Right { get; }
     }

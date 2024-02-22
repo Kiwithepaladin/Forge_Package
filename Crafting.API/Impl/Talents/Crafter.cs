@@ -7,17 +7,15 @@ namespace Crafting.API.Impl.Talents
     public sealed class Crafter : ITalent<Knowledge>
     {
         public string Name => nameof(Crafter);
-
-        //TODO - write something here later
         public string Description => "An Example Talent Point For Crafter Talent";
         public int MAX_POINTS { get => 1; }
-        public int CurrentPoints { get; }
+        public int CurrentPoints { get; set; }
         public ITalent Left => null;
         public ITalent Right => new WeaponCrafter();
 
-        public void Update(Knowledge stat)
+        public Knowledge Obtain()
         {
-            stat.Value = 10;
+            throw new NotImplementedException();
         }
     }
 }
