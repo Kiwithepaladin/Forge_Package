@@ -16,9 +16,9 @@ namespace Crafting.API.Tests.BasicTests
         public void Stats_Inspiration_Inspired()
         {
             var knowladge = sheet.GetStat<Knowledge>();
-            knowladge.SetValue(0);
+            knowladge.Value = 0;
             var inspire = sheet.GetStat<Inspiration>();
-            inspire.SetValue(inspire.MAX_VALUE);
+            inspire.Value = inspire.MAX_VALUE;
 
             var ouputItem = table.Craft(recipe, Ingredient);
 
@@ -29,9 +29,9 @@ namespace Crafting.API.Tests.BasicTests
         public void Stats_Inspiration_Uninspired()
         {
             var knowladge = sheet.GetStat<Knowledge>();
-            knowladge.SetValue(0);
+            knowladge.Value = 0;
             var inspire = sheet.GetStat<Inspiration>();
-            inspire.SetValue(false);
+            inspire.Value = false;
 
             var ouputItem = table.Craft(recipe, Ingredient);
 
@@ -43,7 +43,7 @@ namespace Crafting.API.Tests.BasicTests
         {
             var stat = sheet.GetStat<Multicraft>();
 
-            stat.SetValue(stat.MAX_VALUE);
+            stat.Value = stat.MAX_VALUE;
 
             var ouputItem = table.Craft(recipe, Ingredient);
 
@@ -54,7 +54,7 @@ namespace Crafting.API.Tests.BasicTests
         public void Stats_Multicraft_Minimum()
         {
             var stat = sheet.GetStat<Multicraft>();
-            stat.SetValue(0);
+            stat.Value = 0;
 
             var ouputItem = table.Craft(recipe, Ingredient);
 

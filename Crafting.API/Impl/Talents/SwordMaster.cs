@@ -19,7 +19,7 @@ namespace Crafting.API.Impl.Talents
 
         public void Update(Knowledge stat)
         {
-            stat.SetValue(10);
+            stat.Value = 10;
         }
     }
 }

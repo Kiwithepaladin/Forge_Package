@@ -5,11 +5,6 @@ namespace Crafting.API.Impl.Stats
     public sealed class Resourceful : IStat<float>
     {
         public float MAX_VALUE => 100;
-        public float Value { get; private set; }
-
-        public void SetValue(float newValue)
-        {
-            Value = newValue;
-        }
+        public float Value { get; set; }
     }
 }

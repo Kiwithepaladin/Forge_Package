@@ -22,7 +22,7 @@ namespace Crafting.Core.Utility
         {
             if (GetStat<T>(statSheet) is IStat<J> stat)
             {
-                stat.SetValue(value);
+                stat.Value = value;
                 return (T)stat;
             }
 
