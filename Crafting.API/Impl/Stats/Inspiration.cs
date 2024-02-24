@@ -5,11 +5,6 @@ namespace Crafting.API.Impl.Stats
     public sealed class Inspiration : IStat<bool>
     {
         public bool MAX_VALUE => true;
-        public bool Value { get; private set; }
-
-        public void SetValue(bool newValue)
-        {
-            Value = newValue;
-        }
+        public bool Value { get; set; }
     }
 }

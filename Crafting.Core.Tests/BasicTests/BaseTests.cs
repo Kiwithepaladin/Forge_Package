@@ -14,9 +14,9 @@ namespace Crafting.API.Tests.BasicTests
         protected StatsSheet sheet;
         protected CraftingTable table;
         protected RecipeSword recipe;
-        protected List<IComponent> ingredient => new List<IComponent> {
+        protected static List<IComponent> Ingredient => [
             new Handle(), new Iron(), new Iron()
-        };
+        ];
 
         [SetUp]
         protected virtual void Setup()

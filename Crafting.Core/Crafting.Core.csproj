@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
     <LangVersion>9.0</LangVersion>
   </PropertyGroup>
@@ -14,11 +14,5 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>D:\Things I call Games\CraftingPackage\Assets\Plugins\</OutputPath>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Impl\**" />
-    <EmbeddedResource Remove="Impl\**" />
-    <None Remove="Impl\**" />
-  </ItemGroup>
   
 </Project>

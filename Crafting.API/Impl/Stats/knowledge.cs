@@ -5,11 +5,6 @@ namespace Crafting.API.Impl.Stats
     public sealed class Knowledge : IStat<int>
     {
         public int MAX_VALUE => 100;
-        public int Value { get; private set; }
-
-        public void SetValue(int newValue)
-        {
-            Value = newValue;
-        }
+        public int Value { get; set; }
     }
 }

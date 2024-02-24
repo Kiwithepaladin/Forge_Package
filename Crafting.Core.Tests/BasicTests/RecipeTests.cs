@@ -1,30 +1,24 @@
-﻿using Crafting.API.Impl.Ingredients;
-using Crafting.API.Impl.Items;
-using Crafting.API.Impl.Recipes;
-using Crafting.Core.Abstract.Ingredients;
+﻿using Crafting.API.Impl.Recipes;
 using Crafting.Core.Utility;
 using NUnit.Framework;
-using System.Collections.Generic;
 
 namespace Crafting.API.Tests.BasicTests
 {
-    internal class RecipeTests
+    internal class RecipeTests : BaseTests
     {
         RecipeSword recipeSword;
-        private List<IComponent> ingredient => new List<IComponent> {
-            new Handle(), new Iron(), new Iron()
-        };
 
         [SetUp]
-        public void Setup()
+        protected override void Setup()
         {
+            base.Setup();
             recipeSword = new RecipeSword();
         }
 
         [Test]
         public void Recipe_Cratable_Successful()
         {
-            Assert.AreEqual(Result.Successful, recipeSword.Craftable(ingredient));
+            Assert.AreEqual(Result.Successful, recipeSword.Craftable(Ingredient));
         }
 
         [Test]

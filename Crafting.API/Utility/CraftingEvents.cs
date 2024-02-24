@@ -1,7 +1,6 @@
 ﻿using Crafting.API.Impl.Stats;
 using Crafting.Core.Abstract.Components;
-using Crafting.Core.Utility;
-using System;
+using Crafting.Core.Abstract.Ingredients;
 using System.Collections.Generic;
 
 namespace Crafting.API.Utility
@@ -17,7 +16,7 @@ namespace Crafting.API.Utility
         public delegate void InspiredItem(Item inspiredItem);
         public static event InspiredItem OnInspiredItemCrafted;
 
-        public delegate void CraftFailed(Result result);
+        public delegate void CraftFailed(IComponent component);
         public static event CraftFailed OnCraftFailed;
 
         internal static void RaiseCraftedCompletion(List<Item> craftedItems)
@@ -32,13 +31,13 @@ namespace Crafting.API.Utility
 
         internal static void RaiseInspiredItem(Item inspiredItem, Inspiration inspiration)
         {
-            inspiration.SetValue(false);
+            inspiration.Value = false;
             OnInspiredItemCrafted?.Invoke(inspiredItem);
         }
 
-        internal static void RaiseCraftFailed(Result result)
+        internal static void RaiseCraftFailed(IComponent component)
         {
-            OnCraftFailed?.Invoke(result);
+            OnCraftFailed?.Invoke(component);
         }
     }
 }
