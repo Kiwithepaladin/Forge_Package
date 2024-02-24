@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Crafting.Core.Utility
 {
@@ -27,6 +25,9 @@ namespace Crafting.Core.Utility
         Failed
     }
 
+    /// <summary>
+    /// Difficulty of a Recipe, the lower the Difficulty is the higher the chance of creating a better item
+    /// </summary>
     public enum Difficulty
     {
         Unknown,

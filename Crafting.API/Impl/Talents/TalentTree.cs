@@ -19,7 +19,7 @@ namespace Crafting.API.Impl.Talents
         public TalentTree()
         {
             Talents = new();
-            this.ConstructTreeFromRoot(new Crafter());
+            this.ConstructFromRootTalent(new Crafter());
         }
     }
 }

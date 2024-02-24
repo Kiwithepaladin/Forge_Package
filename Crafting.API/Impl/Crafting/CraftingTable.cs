@@ -72,7 +72,7 @@ namespace Crafting.API.Impl
         //TODO - make a better quality deteminating algorithm
         private Quality DetermineQuality(Recipe recipe, Knowledge skillLevel, Inspiration inspired)
         {
-            Quality output = Quality.Unknown;
+            Quality output;
 
             output = skillLevel.Value switch
             {

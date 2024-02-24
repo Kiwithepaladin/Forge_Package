@@ -13,7 +13,7 @@ namespace Crafting.Core.Utility
         /// <param name="rootTalent">The Root Talent in which the tree is built from</param>
         /// <returns>Final ITalent</returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static ITalent ConstructTreeFromRoot(this ITalentTree talentTree, ITalent rootTalent)
+        public static ITalent ConstructFromRootTalent(this ITalentTree talentTree, ITalent rootTalent)
         {
             if (talentTree == null)
             {
@@ -27,12 +27,12 @@ namespace Crafting.Core.Utility
 
             if (rootTalent.Left != null)
             {
-                talentTree.Talents.Add(ConstructTreeFromRoot(talentTree, rootTalent.Left));
+                talentTree.Talents.Add(ConstructFromRootTalent(talentTree, rootTalent.Left));
             }
 
             if (rootTalent.Right != null)
             {
-                talentTree.Talents.Add(ConstructTreeFromRoot(talentTree, rootTalent.Right));
+                talentTree.Talents.Add(ConstructFromRootTalent(talentTree, rootTalent.Right));
             }
 
             return rootTalent;

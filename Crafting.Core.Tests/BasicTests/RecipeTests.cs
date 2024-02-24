@@ -1,10 +1,6 @@
-﻿using Crafting.API.Impl.Ingredients;
-using Crafting.API.Impl.Items;
-using Crafting.API.Impl.Recipes;
-using Crafting.Core.Abstract.Ingredients;
+﻿using Crafting.API.Impl.Recipes;
 using Crafting.Core.Utility;
 using NUnit.Framework;
-using System.Collections.Generic;
 
 namespace Crafting.API.Tests.BasicTests
 {
