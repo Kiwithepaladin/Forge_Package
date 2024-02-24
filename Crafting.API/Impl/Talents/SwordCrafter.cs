@@ -10,7 +10,7 @@ namespace Crafting.API.Impl.Talents
         public string Name => nameof(SwordCrafter);
         public string Description => "An Example Talent Point For Sword Crafter Talent";
         public int MAX_POINTS { get => 2; }
-        int ITalent.CurrentPoints { get; set; }
+        int ITalent.currentPoints { get; set; }
         public ITalent Left => null;
         public ITalent Right => null;
         Action<ITalent> ITalent.OnUnlock { get; set; } = delegate { };

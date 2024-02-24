@@ -7,21 +7,22 @@ namespace Crafting.Core.Abstract.Talents
         public string Name { get; }
         public string Description { get; }
         public int MAX_POINTS { get; }
-        protected int CurrentPoints { get; set; }
-        public bool Unlocked {  get => CurrentPoints >= MAX_POINTS; }
+        protected int currentPoints { get; set; }
+        public int CurrentPoints => currentPoints;
+        public bool Unlocked {  get => currentPoints >= MAX_POINTS; }
         public Action<ITalent> OnUnlock { get; set; }
         public ITalent Left { get; }
         public ITalent Right { get; }
 
         public void ApplyPoints(int newPoints)
         {
-            if (CurrentPoints >= MAX_POINTS)
+            if (currentPoints >= MAX_POINTS)
             {
                 return;
             }
 
-            var value = Math.Clamp(CurrentPoints + newPoints, 0, MAX_POINTS);
-            CurrentPoints = value;
+            var value = Math.Clamp(currentPoints + newPoints, 0, MAX_POINTS);
+            currentPoints = value;
 
             if (Unlocked)
             {
