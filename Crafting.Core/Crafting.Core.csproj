@@ -14,11 +14,5 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>D:\Things I call Games\CraftingPackage\Assets\Plugins\</OutputPath>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Impl\**" />
-    <EmbeddedResource Remove="Impl\**" />
-    <None Remove="Impl\**" />
-  </ItemGroup>
   
 </Project>

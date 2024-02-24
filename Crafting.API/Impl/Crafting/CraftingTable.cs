@@ -27,7 +27,7 @@ namespace Crafting.API.Impl
             
             if (recipe.Craftable(ingredients) != Result.Successful)
             {
-                CraftingEvents.RaiseCraftFailed(Result.Failed);
+                CraftingEvents.RaiseCraftFailed(recipe.Item);
                 return crafted;
             }
 
