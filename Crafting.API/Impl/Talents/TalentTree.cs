@@ -9,7 +9,7 @@ using System.Text;
 namespace Crafting.API.Impl.Talents
 {
     /// <summary>
-    /// Implements ITalentTree and automatically populates it based on the Crafter class being the root 
+    /// Implements ITalentTree, Automatically populates based on the Crafter Talent being the root 
     /// </summary>
     public sealed class TalentTree : ITalentTree
     {

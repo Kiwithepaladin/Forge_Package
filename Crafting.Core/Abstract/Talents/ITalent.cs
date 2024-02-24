@@ -9,6 +9,8 @@ namespace Crafting.Core.Abstract.Talents
         public int MAX_POINTS { get; }
         protected int currentPoints { get; set; }
         public int CurrentPoints => currentPoints;
+        protected bool accessible { get; set; }
+        public bool Accessible => accessible;
         public bool Unlocked {  get => currentPoints >= MAX_POINTS; }
         public Action<ITalent> OnUnlock { get; set; }
         public ITalent Left { get; }
@@ -16,7 +18,7 @@ namespace Crafting.Core.Abstract.Talents
 
         public void ApplyPoints(int newPoints)
         {
-            if (currentPoints >= MAX_POINTS)
+            if (!Accessible || currentPoints >= MAX_POINTS)
             {
                 return;
             }
@@ -27,7 +29,14 @@ namespace Crafting.Core.Abstract.Talents
             if (Unlocked)
             {
                 OnUnlock?.Invoke(this);
+                Left?.Unlock();
+                Right?.Unlock();
             }
+        }
+
+        public void Unlock()
+        {
+            accessible = true;
         }
     }
 }

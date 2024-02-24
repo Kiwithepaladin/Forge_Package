@@ -14,5 +14,6 @@ namespace Crafting.API.Impl.Talents
         public ITalent Left => null;
         public ITalent Right => null;
         Action<ITalent> ITalent.OnUnlock { get; set; } = delegate { };
+        bool ITalent.accessible { get; set; }
     }
 }

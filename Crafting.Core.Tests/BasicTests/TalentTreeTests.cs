@@ -16,7 +16,7 @@ namespace Crafting.API.Tests.BasicTests
         }
 
         [Test]
-        public void UseTalentTree_Apply_Points()
+        public void UseTalentTree_ApplyPoints()
         {
             var talentTree = new TalentTree();
             var findTalent = talentTree.Talents.Where((s) => s.GetType() == typeof(Crafter)).FirstOrDefault();
@@ -26,6 +26,65 @@ namespace Crafting.API.Tests.BasicTests
             {
                 findTalent.ApplyPoints(findTalent.MAX_POINTS);
                 Assert.IsTrue(findTalent.Unlocked);
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
+
+        [Test]
+        public void UseTalentTree_ApplyPoints_Accessible()
+        {
+            var talentTree = new TalentTree();
+            var findTalent = talentTree.Talents.Where((s) => s.GetType() == typeof(Crafter)).FirstOrDefault();
+            
+            if (findTalent != null)
+            {
+                findTalent.ApplyPoints(findTalent.MAX_POINTS);
+                Assert.IsTrue(findTalent.Right.Accessible);
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
+
+        [Test]
+        public void UseTalentTree_ApplyPoints_Nested_Accessible()
+        {
+            var talentTree = new TalentTree();
+            var findTalent = talentTree.Talents.Where((s) => s.GetType() == typeof(Crafter)).FirstOrDefault();
+
+            if (findTalent != null)
+            {
+                findTalent.ApplyPoints(findTalent.MAX_POINTS);
+                var next = findTalent.Right;
+                Assert.IsTrue(next.Accessible);
+                next.ApplyPoints(next.MAX_POINTS);
+                Assert.IsTrue(next.Left?.Accessible);
+                Assert.IsTrue(next.Right?.Accessible);
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
+
+        [Test]
+        public void UseTalentTree_ApplyPoints_Nested_Not_Accessible()
+        {
+            var talentTree = new TalentTree();
+            var findTalent = talentTree.Talents.Where((s) => s.GetType() == typeof(Crafter)).FirstOrDefault();
+
+            if (findTalent != null)
+            {
+                findTalent.ApplyPoints(findTalent.MAX_POINTS);
+                var next = findTalent.Right;
+                Assert.IsTrue(next.Accessible);
+                next.ApplyPoints(0);
+                Assert.IsFalse(next.Left?.Accessible);
+                Assert.IsFalse(next.Right?.Accessible);
             }
             else
             {
