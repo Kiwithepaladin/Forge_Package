@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Crafting.Core.Utility
+﻿namespace Crafting.Core.Utility
 {
     /// <summary>
     /// Quality of an Item

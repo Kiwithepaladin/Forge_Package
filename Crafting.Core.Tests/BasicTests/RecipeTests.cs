@@ -1,4 +1,4 @@
-﻿using Crafting.API.Impl.Recipes;
+﻿using Crafting.API.Recipes;
 using Crafting.Core.Utility;
 using NUnit.Framework;
 
