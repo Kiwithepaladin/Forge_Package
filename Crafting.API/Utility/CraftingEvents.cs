@@ -1,5 +1,6 @@
 ﻿using Crafting.API.Stats;
 using Crafting.Core.Components;
+using Crafting.Core.Utility;
 using System.Collections.Generic;
 
 namespace Crafting.API.Utility
@@ -30,7 +31,7 @@ namespace Crafting.API.Utility
 
         internal static void RaiseInspiredItem(Item inspiredItem, Inspiration inspiration)
         {
-            inspiration.Value = false;
+            inspiration.Set(false);
             OnInspiredItemCrafted?.Invoke(inspiredItem);
         }
 

@@ -58,7 +58,7 @@ namespace Crafting.API.Crafting
             {
                 crafted.Add(recipe.Item.Craft(DetermineQuality(recipe, knowledge, inspired)));
 
-                if (inspired.Value)
+                if (inspired.Get())
                 {
                     CraftingEvents.RaiseInspiredItem(recipe.Item, inspired);
                 }
@@ -73,7 +73,7 @@ namespace Crafting.API.Crafting
         {
             Quality output;
 
-            output = skillLevel.Value switch
+            output = skillLevel.Get() switch
             {
                 int n when n >= 100 => Quality.Legendary,
                 int n when n >= 80 => Quality.Epic,
@@ -82,7 +82,7 @@ namespace Crafting.API.Crafting
                 _ => Quality.Common,
             };
 
-            if (inspired.Value && (int)output < Enum.GetValues(typeof(Quality)).Length - 1)
+            if (inspired.Get() && (int)output < Enum.GetValues(typeof(Quality)).Length - 1)
             {
                 return output += 1;
             }

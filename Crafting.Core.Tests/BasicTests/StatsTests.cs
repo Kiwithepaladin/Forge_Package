@@ -1,11 +1,15 @@
 using Crafting.API.Stats;
+using Crafting.Core.Stat;
 using Crafting.Core.Utility;
 using NUnit.Framework;
+using System;
 
 namespace Crafting.API.Tests.BasicTests
 {
     internal class StatsTests : BaseTests
     {
+        private bool testingToggle = false;
+
         [Test]
         public void Stats_Validate()
         {
@@ -16,9 +20,9 @@ namespace Crafting.API.Tests.BasicTests
         public void Stats_Inspiration_Inspired()
         {
             var knowladge = sheet.GetStat<Knowledge>();
-            knowladge.Value = 0;
+            knowladge.Set(0);
             var inspire = sheet.GetStat<Inspiration>();
-            inspire.Value = inspire.MAX_VALUE;
+            inspire.Set(inspire.MAX_VALUE);
 
             var ouputItem = table.Craft(recipe, Ingredient);
 
@@ -29,9 +33,9 @@ namespace Crafting.API.Tests.BasicTests
         public void Stats_Inspiration_Uninspired()
         {
             var knowladge = sheet.GetStat<Knowledge>();
-            knowladge.Value = 0;
+            knowladge.Set(0);
             var inspire = sheet.GetStat<Inspiration>();
-            inspire.Value = false;
+            inspire.Set(false);
 
             var ouputItem = table.Craft(recipe, Ingredient);
 
@@ -43,7 +47,7 @@ namespace Crafting.API.Tests.BasicTests
         {
             var stat = sheet.GetStat<Multicraft>();
 
-            stat.Value = stat.MAX_VALUE;
+            stat.Set(stat.MAX_VALUE);
 
             var ouputItem = table.Craft(recipe, Ingredient);
 
@@ -54,7 +58,7 @@ namespace Crafting.API.Tests.BasicTests
         public void Stats_Multicraft_Minimum()
         {
             var stat = sheet.GetStat<Multicraft>();
-            stat.Value = 0;
+            stat.Set(0f);
 
             var ouputItem = table.Craft(recipe, Ingredient);
 
@@ -66,7 +70,7 @@ namespace Crafting.API.Tests.BasicTests
         {
             var modifiedStat = sheet.SetStat<Multicraft, float>(10f);
 
-            Assert.AreEqual(modifiedStat.Value, 10f);
+            Assert.AreEqual(modifiedStat.Get(), 10f);
         }
 
         [Test]
@@ -83,5 +87,32 @@ namespace Crafting.API.Tests.BasicTests
 
             Assert.Fail();
         }
+
+        [Test]
+        public void Stats_Stat_Float_SetValue_Callback()
+        {
+            testingToggle = false;
+            var stat = sheet.GetStat<Knowledge>();
+            stat.OnValueChanged += Stat_Test_Callback;
+            stat.Set(1);
+            Assert.IsTrue(testingToggle);
+            stat.OnValueChanged -= Stat_Test_Callback;
+        }
+
+        [Test]
+        public void Stats_Stat_Float_SetValue_No_Callback()
+        {
+            testingToggle = false;
+            var stat = sheet.GetStat<Knowledge>();
+            stat.Set(1);
+            Assert.IsFalse(testingToggle);
+        }
+
+        #region Helper Methods
+        private void Stat_Test_Callback(IStat stat)
+        {
+            testingToggle = true;
+        }
+        #endregion
     }
 }
