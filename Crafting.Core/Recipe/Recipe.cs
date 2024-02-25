@@ -1,5 +1,4 @@
-﻿using Crafting.Core.Abstract.Recipe;
-using Crafting.Core.Components;
+﻿using Crafting.Core.Components;
 using Crafting.Core.Utility;
 using System.Collections.Generic;
 using System.Linq;

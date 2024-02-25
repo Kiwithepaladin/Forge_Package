@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Crafting.Core.Components
+﻿namespace Crafting.Core.Components
 {
     public interface IComponent
     {

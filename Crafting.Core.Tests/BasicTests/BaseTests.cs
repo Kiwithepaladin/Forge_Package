@@ -1,6 +1,6 @@
 ﻿using Crafting.API.Crafting;
-using Crafting.API.Impl.Ingredients;
-using Crafting.API.Impl.Items;
+using Crafting.API.Ingredients;
+using Crafting.API.Items;
 using Crafting.API.Recipes;
 using Crafting.API.Stats;
 using Crafting.Core.Components;

@@ -1,5 +1,4 @@
 ﻿using Crafting.Core.Components;
-using Crafting.Core.Utility;
 
 namespace Crafting.API.Items
 {

@@ -1,5 +1,4 @@
 ﻿using Crafting.API.Stats;
-using Crafting.Core.Abstract.Stat;
 using Crafting.Core.Talents;
 using System;
 

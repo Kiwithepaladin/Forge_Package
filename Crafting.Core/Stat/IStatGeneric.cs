@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Crafting.Core.Stat
+﻿namespace Crafting.Core.Stat
 {
     public interface IStat<T> : IStat
     {

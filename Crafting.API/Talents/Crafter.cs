@@ -1,7 +1,5 @@
 ﻿using Crafting.API.Stats;
-using Crafting.Core.Abstract.Stat;
 using Crafting.Core.Talents;
-using Crafting.Core.Utility;
 using System;
 
 namespace Crafting.API.Talents

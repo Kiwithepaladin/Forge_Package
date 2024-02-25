@@ -1,10 +1,6 @@
-﻿using Crafting.Core.Abstract.Stat;
-using Crafting.Core.Talents;
+﻿using Crafting.Core.Talents;
 using Crafting.Core.Utility;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Crafting.API.Talents
 {
