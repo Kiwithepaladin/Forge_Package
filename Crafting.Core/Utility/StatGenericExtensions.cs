@@ -1,4 +1,4 @@
-﻿using Crafting.Core.Abstract.Stat;
+﻿using Crafting.Core.Stat;
 
 namespace Crafting.Core.Utility
 {

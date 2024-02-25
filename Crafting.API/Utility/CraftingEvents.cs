@@ -1,6 +1,5 @@
-﻿using Crafting.API.Impl.Stats;
-using Crafting.Core.Abstract.Components;
-using Crafting.Core.Abstract.Ingredients;
+﻿using Crafting.API.Stats;
+using Crafting.Core.Components;
 using System.Collections.Generic;
 
 namespace Crafting.API.Utility

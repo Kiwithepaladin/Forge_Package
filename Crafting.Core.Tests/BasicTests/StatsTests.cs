@@ -1,4 +1,4 @@
-using Crafting.API.Impl.Stats;
+using Crafting.API.Stats;
 using Crafting.Core.Utility;
 using NUnit.Framework;
 

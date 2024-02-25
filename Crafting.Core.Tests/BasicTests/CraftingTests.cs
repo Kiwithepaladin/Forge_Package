@@ -1,5 +1,5 @@
-﻿using Crafting.API.Impl.Crafting;
-using Crafting.API.Impl.Stats;
+﻿using Crafting.API.Crafting;
+using Crafting.API.Stats;
 using Crafting.Core.Utility;
 using NUnit.Framework;
 using System;

@@ -1,4 +1,4 @@
-﻿using Crafting.Core.Abstract.Talents;
+﻿using Crafting.Core.Talents;
 using System;
 
 namespace Crafting.Core.Utility

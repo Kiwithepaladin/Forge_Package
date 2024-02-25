@@ -1,4 +1,4 @@
-﻿using Crafting.Core.Abstract.Stat;
+﻿using Crafting.Core.Stat;
 using System;
 using System.Linq;
 

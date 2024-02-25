@@ -1,5 +1,6 @@
 ﻿using Crafting.API.Impl.Talents;
-using Crafting.Core.Abstract.Talents;
+using Crafting.API.Talents;
+using Crafting.Core.Talents;
 using NUnit.Framework;
 using System;
 using System.Linq;
