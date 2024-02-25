@@ -1,5 +1,6 @@
 ﻿using Crafting.API.Crafting;
 using Crafting.API.Stats;
+using Crafting.Core.Stat;
 using Crafting.Core.Utility;
 using NUnit.Framework;
 
@@ -20,7 +21,7 @@ namespace Crafting.API.Tests.BasicTests
         public void Craft_Knowledge_Quality_Legendary_Item()
         {
             var stat = sheet.GetStat<Knowledge>();
-            stat.Value = stat.MAX_VALUE;
+            stat.Set(stat.MAX_VALUE);
 
             var ouputItems = table.Craft(recipe, Ingredient);
 
@@ -31,7 +32,7 @@ namespace Crafting.API.Tests.BasicTests
         public void Craft_Knowledge_Quality_Epic_Item()
         {
             var stat = sheet.GetStat<Knowledge>();
-            stat.Value = 80;
+            stat.Set(80);
 
             var ouputItems = table.Craft(recipe, Ingredient);
 
@@ -42,7 +43,7 @@ namespace Crafting.API.Tests.BasicTests
         public void Craft_Knowledge_Quality_Rare_Item()
         {
             var stat = sheet.GetStat<Knowledge>();
-            stat.Value = 60;
+            stat.Set(60);
 
             var ouputItems = table.Craft(recipe, Ingredient);
 
@@ -53,7 +54,7 @@ namespace Crafting.API.Tests.BasicTests
         public void Craft_Knowledge_Quality_Uncommon_Item()
         {
             var stat = sheet.GetStat<Knowledge>();
-            stat.Value = 40;  
+            stat.Set(40);
 
             var ouputItems = table.Craft(recipe, Ingredient);
 
@@ -64,7 +65,7 @@ namespace Crafting.API.Tests.BasicTests
         public void Craft_Knowledge_Quality_Common_Item()
         {
             var stat = sheet.GetStat<Knowledge>();
-            stat.Value = 0;
+            stat.Set(0);
 
             var ouputItems = table.Craft(recipe, Ingredient);
 

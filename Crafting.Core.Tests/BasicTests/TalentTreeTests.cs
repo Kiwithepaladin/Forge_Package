@@ -92,9 +92,11 @@ namespace Crafting.API.Tests.BasicTests
             }
         }
 
+        #region Helper Methods
         private void OnUnlocked_For_Tests(ITalent talent)
         {
             Console.WriteLine(talent.Name);
         }
+        #endregion
     }
 }
