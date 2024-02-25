@@ -12,7 +12,7 @@ namespace Crafting.Core.Recipe
                 return false;
             }
 
-            return x.Name.ToLower() == y.Name.ToLower() && x.GetType() == y.GetType();
+            return x.GetType() == y.GetType() && x.Name.ToLower() == y.Name.ToLower();
         }
 
         public int GetHashCode(IComponent obj)
